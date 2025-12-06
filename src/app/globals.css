@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Phoenix Color Scheme - Fiery oranges, reds, and warm tones */
+    --background: 20 14% 8%;
+    --foreground: 30 10% 98%;
+    --primary: 25 95% 53%;
+    --primary-foreground: 20 14% 8%;
+    --secondary: 15 30% 20%;
+    --secondary-foreground: 30 10% 98%;
+    --muted: 20 20% 18%;
+    --muted-foreground: 30 8% 65%;
+    --accent: 15 30% 20%;
+    --accent-foreground: 30 10% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 30 10% 98%;
+    --border: 20 20% 18%;
+    --input: 20 20% 18%;
+    --ring: 25 95% 53%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(255, 94, 20, 0.7), 0 0 20px rgba(255, 94, 20, 0.5);
+  }
+
+  .border-glow {
+    box-shadow: 0 0 10px rgba(255, 94, 20, 0.5), inset 0 0 5px rgba(255, 94, 20, 0.3);
+  }
+
+  .glass {
+    background: rgba(30, 20, 15, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 94, 20, 0.1);
+  }
+
+  /* Fix browser autofill styling for dark theme */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px hsl(var(--background)) inset !important;
+    -webkit-text-fill-color: hsl(var(--foreground)) !important;
+    caret-color: hsl(var(--foreground));
+    border-color: hsl(var(--border));
+  }
+}

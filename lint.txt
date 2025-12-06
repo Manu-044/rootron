@@ -1,0 +1,40 @@
+
+> web@0.1.0 lint
+> eslint
+
+
+C:\Users\saiva\OneDrive\Documents\web\src\app\admin\members\page.tsx
+  5:34  warning  'MoreHorizontal' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\saiva\OneDrive\Documents\web\src\app\admin\page.tsx
+  16:71  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  16:78  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\saiva\OneDrive\Documents\web\src\app\contact\page.tsx
+  13:70  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\saiva\OneDrive\Documents\web\src\app\login\page.tsx
+  54:24  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\saiva\OneDrive\Documents\web\src\components\auth\AuthLayout.tsx
+  1:8  warning  'SectionWrapper' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\saiva\OneDrive\Documents\web\src\components\sections\about\Intro.tsx
+  23:51   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  23:182  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\saiva\OneDrive\Documents\web\src\components\sections\events\EventCard.tsx
+  5:20  warning  'MapPin' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\saiva\OneDrive\Documents\web\src\components\sections\home\Stats.tsx
+  3:8  warning  'SectionWrapper' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\saiva\OneDrive\Documents\web\src\components\sections\projects\ProjectFilter.tsx
+  3:10  warning  'Input' is defined but never used   @typescript-eslint/no-unused-vars
+  4:10  warning  'Button' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\saiva\OneDrive\Documents\web\src\components\ui\Input.tsx
+  4:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+✖ 13 problems (7 errors, 6 warnings)
+
