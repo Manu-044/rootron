@@ -9,8 +9,4 @@
 
 [build.environment]
   NODE_VERSION = "20"
-
-# This is important for Next.js on Netlify
-[functions]
-  node_bundler = "esbuild"
-
+  NEXT_TELEMETRY_DISABLED = "1"
