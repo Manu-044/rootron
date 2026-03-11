@@ -50,9 +50,12 @@ export default function UpcomingEvent() {
                             </span>
                             Upcoming Event {upcomingEvents.length > 1 && `(${currentIndex + 1}/${upcomingEvents.length})`}
                         </div>
-                        <h3 className="text-2xl md:text-3xl font-orbitron font-bold text-white mb-2">
+                        <h3 className="text-2xl md:text-3xl font-orbitron font-bold text-white mb-1">
                             {currentEvent.title}
                         </h3>
+                        {'subtitle' in currentEvent && currentEvent.subtitle && (
+                            <p className="text-primary text-sm font-medium mb-2 italic">{currentEvent.subtitle}</p>
+                        )}
                         <div className="flex flex-col sm:flex-row gap-4 text-gray-300 text-sm">
                             <div className="flex items-center gap-2">
                                 <Calendar size={16} className="text-primary" />
@@ -84,7 +87,7 @@ export default function UpcomingEvent() {
                                 </button>
                             </div>
                         )}
-                        <a href="https://webathon25.netlify.app" target="_blank" rel="noopener noreferrer">
+                        <a href={currentEvent.link} target="_blank" rel="noopener noreferrer">
                             <Button size="lg" className="shrink-0">
                                 Register Now
                             </Button>

@@ -9,12 +9,13 @@ import { motion } from "framer-motion";
 interface Event {
     id: string;
     title: string;
+    subtitle?: string;
     date: string;
     mode: string;
     description: string;
     image: string;
     type: string;
-    link: string;
+    link?: string;
 }
 
 interface EventCardProps {
@@ -22,7 +23,7 @@ interface EventCardProps {
 }
 
 export default function EventCard({ event }: EventCardProps) {
-    const isExternalLink = event.link.startsWith('http://') || event.link.startsWith('https://');
+    const isExternalLink = event.link && (event.link.startsWith('http://') || event.link.startsWith('https://'));
 
     return (
         <motion.div
@@ -43,6 +44,9 @@ export default function EventCard({ event }: EventCardProps) {
 
                 <CardHeader>
                     <CardTitle className="text-xl">{event.title}</CardTitle>
+                    {event.subtitle && (
+                        <p className="text-primary text-xs font-medium italic mt-1">{event.subtitle}</p>
+                    )}
                     <div className="flex items-center gap-2 text-sm text-gray-400 mt-2">
                         <Calendar size={14} className="text-primary" />
                         <span>{event.date}</span>
@@ -53,21 +57,23 @@ export default function EventCard({ event }: EventCardProps) {
                     <p className="text-sm text-gray-400">{event.description}</p>
                 </CardContent>
 
-                <CardFooter>
-                    {isExternalLink ? (
-                        <a href={event.link} target="_blank" rel="noopener noreferrer" className="w-full">
-                            <Button className="w-full">
-                                {event.type === "upcoming" ? "Register Now" : "View Recap"} <ArrowRight className="ml-2 h-4 w-4" />
+                {event.link && (
+                    <CardFooter>
+                        {isExternalLink ? (
+                            <a href={event.link} target="_blank" rel="noopener noreferrer" className="w-full">
+                                <Button className="w-full">
+                                    {event.type === "upcoming" ? "Register Now" : "View Recap"} <ArrowRight className="ml-2 h-4 w-4" />
+                                </Button>
+                            </a>
+                        ) : (
+                            <Button asChild className="w-full">
+                                <Link href={event.link}>
+                                    {event.type === "upcoming" ? "Register Now" : "View Recap"} <ArrowRight className="ml-2 h-4 w-4" />
+                                </Link>
                             </Button>
-                        </a>
-                    ) : (
-                        <Button asChild className="w-full">
-                            <Link href={event.link}>
-                                {event.type === "upcoming" ? "Register Now" : "View Recap"} <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                        </Button>
-                    )}
-                </CardFooter>
+                        )}
+                    </CardFooter>
+                )}
             </Card>
         </motion.div>
     );
